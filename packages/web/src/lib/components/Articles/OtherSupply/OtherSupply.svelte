@@ -1,4 +1,5 @@
 <script lang="ts">
+	// import { asset } from '$app/paths'; // restore with the <figure> blocks below
 	import { gsap, SplitText } from '$lib/gsap';
 
 	let wrapper: HTMLElement;
@@ -81,12 +82,14 @@
 			</p>
 		</div>
 
+		<!-- TODO: restore once static/images/placeholder-grid.jpg exists
 		<figure class="interview__figure">
-			<img src="/images/placeholder-grid.jpg" alt="" />
+			<img src={asset('/images/placeholder-grid.jpg')} alt="" />
 			<figcaption>
 				The main view. Everything that arrived this week, in the order it arrived.
 			</figcaption>
 		</figure>
+		-->
 
 		<div class="qa">
 			<p class="qa__q">What's the hardest part technically?</p>
@@ -108,10 +111,12 @@
 			</p>
 		</div>
 
+		<!-- TODO: restore once static/images/placeholder-sleeve.jpg exists
 		<figure class="interview__figure">
-			<img src="/images/placeholder-sleeve.jpg" alt="" />
+			<img src={asset('/images/placeholder-sleeve.jpg')} alt="" />
 			<figcaption>Placeholder.</figcaption>
 		</figure>
+		-->
 
 		<div class="qa">
 			<p class="qa__q">

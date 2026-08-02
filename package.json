@@ -8,6 +8,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.10",
     "svelte-adapter-bun": "^1.0.1"
   },
   "dependencies": {

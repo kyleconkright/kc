@@ -1,7 +1,7 @@
+import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { playwright } from '@vitest/browser-playwright';
-import adapter from 'svelte-adapter-bun';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
@@ -12,11 +12,17 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
+			paths: {
+				// Set by the deploy workflow to '/<repo-name>' when the site is served
+				// from a project page rather than <user>.github.io.
+				base: process.env.BASE_PATH as '' | `/${string}` | undefined
+			},
 
-			// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-			// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-			// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-			adapter: adapter(),
+			// Prerenders every route to static HTML for GitHub Pages.
+			// fallback replaces the default GitHub 404 page.
+			adapter: adapter({
+				fallback: '404.html'
+			}),
 			preprocess: vitePreprocess()
 		})
 	],
