@@ -1,56 +1,58 @@
 <script lang="ts">
-	import Logo from '$lib/components/Logo.svelte';
-	import { gsap, SplitText } from '$lib/gsap';
-	let heading: HTMLHeadingElement;
-	let about: HTMLParagraphElement;
-
-	$effect(() => {
-		const heroText = SplitText.create(heading, { type: 'chars' });
-		gsap.from(heroText.chars, {
-			x: 10,
-			autoAlpha: 0,
-			rotation: 'random(-30, 30)',
-			ease: 'back.out',
-			stagger: {
-				each: 0.05
-			}
-		});
-	});
+	import About from '$lib/components/About/About.svelte';
+	import OtherSupply from '$lib/components/Articles/OtherSupply/OtherSupply.svelte';
 </script>
 
-<main>
-	<nav>
-		<span>linkedin</span>
-		<span>github</span>
-	</nav>
-	<section class="content">
-		<header>
-			<h1 bind:this={heading}>Hello, my name is Kyle.</h1>
-			<p bind:this={about}>
-				I am a software engineer based in Los Angeles. Good interfaces are the result of a lot of
-				small decisions, and I like making them.
-			</p>
-			<div class="logo" style="color: var(--blue)">
-				<Logo></Logo>
+<div class="app">
+	<main>
+		<section id="intro">
+			<div id="about">
+				<About></About>
 			</div>
-		</header>
-		<footer></footer>
-	</section>
-	<section class="poster">
-		<!-- <BookCover></BookCover> -->
-		<!-- <Cover></Cover> -->
-	</section>
-	<section class="other-supply">
-		<h1>The New Arrivals Bin, Rebuilt</h1>
-	</section>
-</main>
+			<div class="empty"></div>
+		</section>
+		<section id="article">
+			<OtherSupply></OtherSupply>
+		</section>
+	</main>
+	<!-- <footer></footer> -->
+</div>
 
 <style>
-	main {
+	div.app {
+		min-height: 100dvh;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: var(--page-grid);
+		column-gap: var(--page-grid-gap);
 	}
-	section {
+	main {
+		height: 100%;
+		grid-column: full;
+		display: grid;
+		grid-template-columns: subgrid;
+	}
+
+	section#intro,
+	section#article {
+		min-height: 100dvh;
+		grid-column: full;
+	}
+
+	section#intro {
+		display: grid;
+		grid-template-columns: subgrid;
+	}
+
+	div#about {
+		grid-column: content-start / 8;
+	}
+
+	div.empty {
+		background: white;
+		grid-column: 8 / -1;
+	}
+
+	/* section {
 		display: grid;
 		align-items: center;
 	}
@@ -93,5 +95,5 @@
 	.poster {
 		background: var(--almost-white);
 		min-height: 100vh;
-	}
+	} */
 </style>
