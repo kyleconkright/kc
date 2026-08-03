@@ -1,0 +1,59 @@
+/**
+TYPOGRAPHY
+*/
+
+@font-face {
+	font-family: 'ClashDisplay-Variable';
+	src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2-variations');
+	font-weight: 200 700;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Satoshi-Variable';
+	src: url('/fonts/Satoshi-Variable.woff2') format('woff2-variations');
+	font-weight: 300 900;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Satoshi-VariableItalic';
+	src: url('/fonts/Satoshi-VariableItalic.woff2') format('woff2-variations');
+	font-weight: 300 900;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Archivo-Variable';
+	src: url('/fonts/Archivo-Variable.woff2') format('woff2-variations');
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Archivo-VariableItalic';
+	src: url('/fonts/Archivo-VariableItalic.woff2') format('woff2-variations');
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Instrument';
+	src: url('/fonts/InstrumentSerif-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'StackSans';
+	src: url('/fonts/StackSansHeadline-Variable.woff2') format('woff2');
+	font-weight: 200 700;
+	font-style: normal;
+	font-display: swap;
+}

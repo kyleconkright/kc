@@ -1,67 +1,42 @@
 <script lang="ts">
-	import Logo from '$lib/components/Logo.svelte';
 </script>
 
 <div class="content">
-	<ul>
-		<li>
-			<span>linkedin</span>
-		</li>
-		<li>
-			<span>github</span>
-		</li>
-		<li>
-			<span>product hunt</span>
-		</li>
-	</ul>
-	<div class="hello">
-		<h1>Hello, my name is Kyle.</h1>
-		<p>
-			I am a software engineer based in Los Angeles. Good interfaces are the result of a lot of
-			small decisions, and I like making them.
-		</p>
-		<div class="logo" style="color: var(--blue)">
-			<Logo></Logo>
-		</div>
+	<div class="book">
+		<section class="inset">
+			<enhanced:img
+				src="./inset.webp?quality=90&w=3130;2560;1920;1440;1080"
+				alt="Dodger Stadium at dusk, seen from the upper deck"
+				sizes="75vw"
+				fetchpriority="high"
+			/>
+		</section>
+		<section class="cover">
+			<span>Los Angeles, CA</span>
+			<header>
+				<h1>Kyle Conkright</h1>
+				<h2>ux engineer</h2>
+			</header>
+			<ul>
+				<li>
+					<a target="_blank" href="https://www.linkedin.com/in/kyleconkright/">linkedin</a>
+				</li>
+				<li>
+					<a target="_blank" href="https://github.com/kyleconkright">github</a>
+				</li>
+				<li>
+					<a target="_blank" href="https://www.producthunt.com/products/other-supply"
+						>product hunt</a
+					>
+				</li>
+			</ul>
+			<!-- <div class="logo" style="color: var(--blue)">
+				<Logo></Logo>
+			</div> -->
+		</section>
 	</div>
 </div>
 
 <style>
-	div.content {
-		height: 100%;
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-	}
-
-	ul,
-	div.content > div.hello {
-		grid-area: 1 / 1 / -1 / -1;
-		display: grid;
-		grid-template-columns: subgrid;
-	}
-
-	ul {
-		padding-block: 1rem;
-		font-family: 'ClashDisplay-Variable';
-		font-weight: 600;
-	}
-
-	ul li {
-		grid-column: span / 3;
-	}
-
-	div.content div.hello {
-		place-content: center;
-		row-gap: 1rem;
-	}
-
-	h1 {
-		grid-column: 1 / -1;
-	}
-	p {
-		grid-column: 1 / 5;
-	}
-	div.logo {
-		grid-column-start: 1;
-	}
+	@import './About.css';
 </style>
